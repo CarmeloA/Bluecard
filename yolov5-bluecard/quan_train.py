@@ -48,7 +48,7 @@ def train(hyp,device):
     model_file = './weights/20201231_exp25_599_800_forT_bs128_320x320.mnn'
     net = nn.load_module_from_file(model_file, for_training=True)
     nn.compress.train_quant(net, quant_bits=8)
-    mnn_opt = MNN.optim.SGD(1e-9, 0.9, 0)
+    mnn_opt = MNN.optim.SGD(1e-6, 0.9, 0)
     mnn_opt.append(net.parameters)
     net.train(True)
 
@@ -57,6 +57,7 @@ def train(hyp,device):
     gs = 32  # grid size (max stride)
     imgsz = 320
     batch_size = 128# verify imgsz are gs-multiples
+    stride = [8,16,32]
     train_path = '/home/sysman/gate_Sample/VOCdevkit/VOC2017/ImageSets/train_5th_add.txt'
     opt = ''
 
@@ -69,45 +70,37 @@ def train(hyp,device):
 
 
     for epoch in range(5):  # epoch ------------------------------------------------------------------
-
+        t0 = time.time()
         for i, (imgs, targets, paths, _) in enumerate(dataloader):  # batch -------------------------------------------------------------
+            t1 = time.time()
             imgs = imgs.to(device, non_blocking=True).float() / 255.0
             # Forward
-            with amp.autocast(enabled=cuda):
-                bs,c,h,w = imgs.shape
-                # data_image1 = imgs[0].cpu()
-                # images_t3 = tf.ToPILImage()(data_image1)
-                # images_t3.show()
-                # for n,p in model.named_parameters():
-                #     print(p.dtype)
 
-                # 20201231 by zlf
-                # MNN forward
-                data = MNNF.const(imgs.flatten().tolist(), [128, 3, 320, 320], MNNF.data_format.NCHW)
-                predict = net.forward(data)
-                predict.read()
-                p1 = MNNF.Var.read(predict)
+            bs, c, h, w = imgs.shape
 
+            # 20201231 by zlf
+            # MNN forward
+            data = MNNF.const(imgs.flatten().tolist(), [128, 3, 320, 320], MNNF.data_format.NCHW)
+            predict = net.forward(data)
+            predict.read()
+            p1 = MNNF.Var.read(predict)
+            p1 = torch.tensor(p1).cuda()
+            x1, x2, x3 = torch.split(p1, [4800,1200,300], 1)
 
-                p1 = torch.tensor(p1).cuda()
-                x1, x2, x3 = torch.split(p1, [4800, 1200, 300], 1)
+            x1 = x1.view(-1, 3, 109, 40, 40).permute(0, 1, 3, 4, 2).contiguous()
+            x2 = x2.view(-1, 3, 109, 20, 20).permute(0, 1, 3, 4, 2).contiguous()
+            x3 = x3.view(-1, 3, 109, 10, 10).permute(0, 1, 3, 4, 2).contiguous()
+            x = [x1, x2, x3]
 
-                x1 = x1.view(-1, 3,109, 40, 40).permute(0, 1, 3, 4, 2).contiguous()
-                x2 = x2.view(-1, 3,109, 20, 20).permute(0, 1, 3, 4, 2).contiguous()
-                x3 = x3.view(-1, 3,109, 10, 10).permute(0, 1, 3, 4, 2).contiguous()
-                x = [x1,x2,x3]
-
-
-
-                loss1, loss_items1 = compute_loss(x, targets.to(device), model)
-                loss1 = np.array(loss1.cpu())
-                loss1 = MNNF.const(loss1.flatten().tolist(), [1], MNNF.data_format.NCHW)
+            loss1, loss_items1 = compute_loss(x, targets.to(device), model)
+            loss1 = np.array(loss1.cpu())
+            loss1 = MNNF.const(loss1.flatten().tolist(), [1], MNNF.data_format.NCHW)
 
 
             # Backward
             mnn_opt.step(loss1)
-            if i % 10 == 0:
-                print("[%d|%d|%d]train loss:%.5f "%(epoch,i,len(dataloader)-1,loss1.read()))
+            t2 = time.time()
+            print("[%d|%d|%d]train loss:%.5f,time:%.3f "%(epoch,i,len(dataloader)-1,loss1.read(),(t2-t1)))
 
         # save model
         file_name = './weights/%d_20201231test.mnn' % epoch
@@ -115,6 +108,7 @@ def train(hyp,device):
         predict = net.forward(MNNF.placeholder([1, 3, 192, 320], MNNF.NC4HW4))
         print("Save to " + file_name)
         MNNF.save([predict], file_name)
+        print('Epoch:',(time.time()-t0))
 
 
         # end epoch ----------------------------------------------------------------------------------------------------

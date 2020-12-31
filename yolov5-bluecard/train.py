@@ -86,7 +86,7 @@ def train(hyp, opt, device, tb_writer=None):
         model = Model(opt.cfg, ch=3, nc=nc).to(device)  # create
 
     # load MNN Model
-    model_file = './weights/20201230test_forT_T_320x320.mnn'
+    model_file = './weights/20201231_exp25_599_800_forT_bs128_320x320.mnn'
     net = nn.load_module_from_file(model_file, for_training=True)
     nn.compress.train_quant(net, quant_bits=8)
     mnn_opt = MNN.optim.SGD(1e-9, 0.9, 0)
@@ -296,11 +296,11 @@ def train(hyp, opt, device, tb_writer=None):
                 # images_t3.show()
                 # for n,p in model.named_parameters():
                 #     print(p.dtype)
-                pred = model(imgs)
+                # pred = model(imgs)
 
                 # 20201231 by zlf
                 # MNN forward
-                data = MNNF.const(imgs.flatten().tolist(), [2, 3, 320, 320], MNNF.data_format.NCHW)
+                data = MNNF.const(imgs.flatten().tolist(), [128, 3, 320, 320], MNNF.data_format.NCHW)
                 predict = net.forward(data)
                 predict.read()
                 p1 = MNNF.Var.read(predict)
@@ -318,62 +318,62 @@ def train(hyp, opt, device, tb_writer=None):
 
                 # by zlf 20201016 now,pred is (bs,327,6,10),
                 # but complute loss needs (bs,3,6,10,109)
-                for idx in range(3):
-                    bs, _, ny, nx = pred[idx].shape
-                    pred[idx] = pred[idx].view(bs, 3, 109, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
+                # for idx in range(3):
+                #     bs, _, ny, nx = pred[idx].shape
+                #     pred[idx] = pred[idx].view(bs, 3, 109, ny, nx).permute(0, 1, 3, 4, 2).contiguous()
                 # 20201016 by zlf
 
-                loss, loss_items = compute_loss(pred, targets.to(device), model)
+                # loss, loss_items = compute_loss(pred, targets.to(device), model)
                 loss1, loss_items1 = compute_loss(x, targets.to(device), model)
                 loss1 = np.array(loss1.cpu())
                 loss1 = MNNF.const(loss1.flatten().tolist(), [1], MNNF.data_format.NCHW)
                 # print('loss:',loss)# loss scaled by batch_size
-                if rank != -1:
-                    loss *= opt.world_size  # gradient averaged between devices in DDP mode
+                # if rank != -1:
+                #     loss *= opt.world_size  # gradient averaged between devices in DDP mode
 
             # Backward
-            scaler.scale(loss).backward()
+            # scaler.scale(loss).backward()
             mnn_opt.step(loss1)
 
             # Optimize
-            if ni % accumulate == 0:
-                scaler.step(optimizer)  # optimizer.step
-                scaler.update()
-                optimizer.zero_grad()
-                if ema:
-                    ema.update(model)
-
-            # Print
-            if rank in [-1, 0]:
-                mloss = (mloss * i + loss_items) / (i + 1)  # update mean losses
-                mem = '%.3gG' % (torch.cuda.memory_reserved() / 1E9 if torch.cuda.is_available() else 0)  # (GB)
-                s = ('%10s' * 2 + '%10.4g' * 6) % (
-                    '%g/%g/%g' % (epoch, epochs - 1,i), mem, *mloss, targets.shape[0], imgs.shape[-1])
-                pbar.set_description(s)
-
-                # Plot
-                if ni < 3:
-                    f = str(log_dir / ('train_batch%g.jpg' % ni))  # filename
-                    result = plot_images(images=imgs, targets=targets, paths=paths, fname=f)
-                    if tb_writer and result is not None:
-                        tb_writer.add_image(f, result, dataformats='HWC', global_step=epoch)
+            # if ni % accumulate == 0:
+            #     scaler.step(optimizer)  # optimizer.step
+            #     scaler.update()
+            #     optimizer.zero_grad()
+            #     if ema:
+            #         ema.update(model)
+            #
+            # # Print
+            # if rank in [-1, 0]:
+            #     mloss = (mloss * i + loss_items) / (i + 1)  # update mean losses
+            #     mem = '%.3gG' % (torch.cuda.memory_reserved() / 1E9 if torch.cuda.is_available() else 0)  # (GB)
+            #     s = ('%10s' * 2 + '%10.4g' * 6) % (
+            #         '%g/%g/%g' % (epoch, epochs - 1,i), mem, *mloss, targets.shape[0], imgs.shape[-1])
+            #     pbar.set_description(s)
+            #
+            #     # Plot
+            #     if ni < 3:
+            #         f = str(log_dir / ('train_batch%g.jpg' % ni))  # filename
+            #         result = plot_images(images=imgs, targets=targets, paths=paths, fname=f)
+            #         if tb_writer and result is not None:
+            #             tb_writer.add_image(f, result, dataformats='HWC', global_step=epoch)
                         # tb_writer.add_graph(model, imgs)  # add model to tensorboard
 
 
             # 20201016 by zlf
             # save model
-            with open(results_file, 'a') as f:
-                f.write(s + '%10.4g' * 7 % results + '\n')
+            # with open(results_file, 'a') as f:
+            #     f.write(s + '%10.4g' * 7 % results + '\n')
+            #
+            # with open(results_file, 'r') as f:  # create checkpoint
+            #     ckpt = {'epoch': epoch,
+            #             'best_fitness': best_fitness,
+            #             'training_results': None,
+            #             'model': ema.ema,
+            #             'optimizer': None}
 
-            with open(results_file, 'r') as f:  # create checkpoint
-                ckpt = {'epoch': epoch,
-                        'best_fitness': best_fitness,
-                        'training_results': None,
-                        'model': ema.ema,
-                        'optimizer': None}
-
-            if epoch>120 and (i % 450 == 0) and (i != 0):
-                torch.save(ckpt, wdir / 'ckpt_model_{}_{}_{}.pt'.format(epoch,i,round((mloss.sum()/2.).item(),5)))
+            # if epoch>120 and (i % 450 == 0) and (i != 0):
+            #     torch.save(ckpt, wdir / 'ckpt_model_{}_{}_{}.pt'.format(epoch,i,round((mloss.sum()/2.).item(),5)))
                 # add by zlf on 20201113 New Val Project
                 # wdir_s = str(wdir)+'/'
                 # modelv = ModelV(wdir_s+'ckpt_model_{}_{}_{}.pt'.format(epoch,i,round((mloss.sum()/2.).item(),5)))
@@ -393,8 +393,15 @@ def train(hyp, opt, device, tb_writer=None):
                 # count_f.write(line+'\n')
 
 
-            del ckpt
+            # del ckpt
             # end batch ------------------------------------------------------------------------------------------------
+        # save model
+        file_name = './weights/%d_20201231test.mnn' % epoch
+        net.train(False)
+        predict = net.forward(MNNF.placeholder([1, 3, 192, 320], MNNF.NC4HW4))
+        print("Save to " + file_name)
+        MNNF.save([predict], file_name)
+
 
         # Scheduler
         lr = [x['lr'] for x in optimizer.param_groups]  # for tensorboard
@@ -487,8 +494,8 @@ if __name__ == '__main__':
     parser.add_argument('--cfg', type=str, default='./models/yolov5s.yaml', help='model.yaml path')
     parser.add_argument('--data', type=str, default='coco/coco_bluecard.yaml', help='data.yaml path')
     parser.add_argument('--hyp', type=str, default='data/hyp.finetune_new.yaml', help='hyperparameters path')
-    parser.add_argument('--epochs', type=int, default=400)
-    parser.add_argument('--batch-size', type=int, default=2, help='total batch size for all GPUs')
+    parser.add_argument('--epochs', type=int, default=100)
+    parser.add_argument('--batch-size', type=int, default=128, help='total batch size for all GPUs')
     parser.add_argument('--img-size', nargs='+', type=int, default=[320,320], help='[train, test] image sizes')
     parser.add_argument('--rect', action='store_true', help='rectangular training')
     parser.add_argument('--resume', nargs='?', const=True, default=False, help='resume most recent training')
