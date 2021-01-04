@@ -107,7 +107,7 @@ def train(hyp,device):
 
             loss1, loss_items1 = compute_loss(x, targets.to(device), model)
             total_loss += loss_items1[3].item()
-            avg_total_loss = total_loss/i
+            avg_total_loss = total_loss/(i+1)
             # if i == 0:
             #     print('loss0:',loss1)
             #     print('iou loss:%.4f,obj loss:%.4f,cls loss:%.4f,total:%.4f'%(loss_items1[0].item(),loss_items1[1].item(),loss_items1[2].item(),loss_items1[3].item()))
