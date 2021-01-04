@@ -36,8 +36,13 @@ nn = MNN.nn
 
 logger = logging.getLogger(__name__)
 
+def learning_rate_scheduler(lr, epoch):
+    if (epoch + 1) % 2 == 0:
+        lr *= 0.1
+    return lr
 
 def train(hyp,device):
+    init_seeds(1)
     cuda = device.type != 'cpu'
 
     # v5 Model
@@ -48,8 +53,9 @@ def train(hyp,device):
     model_file = './weights/20201231_exp25_599_800_forT_bs128_320x320.mnn'
     net = nn.load_module_from_file(model_file, for_training=True)
     nn.compress.train_quant(net, quant_bits=8)
-    mnn_opt = MNN.optim.SGD(1e-6, 0.9, 0)
+    mnn_opt = MNN.optim.SGD(5e-6, 0.9, 0)
     mnn_opt.append(net.parameters)
+    MNNF.set_thread_number(32)
     net.train(True)
 
 
@@ -60,6 +66,7 @@ def train(hyp,device):
     stride = [8,16,32]
     train_path = '/home/sysman/gate_Sample/VOCdevkit/VOC2017/ImageSets/train_5th_add.txt'
     opt = ''
+    f = open('20210104_quan_train.txt','w')
 
 
 
@@ -71,16 +78,21 @@ def train(hyp,device):
 
     for epoch in range(5):  # epoch ------------------------------------------------------------------
         t0 = time.time()
+        total_loss = 0
+        # mnn_opt.learning_rate = learning_rate_scheduler(mnn_opt.learning_rate, epoch)
         for i, (imgs, targets, paths, _) in enumerate(dataloader):  # batch -------------------------------------------------------------
             t1 = time.time()
             imgs = imgs.to(device, non_blocking=True).float() / 255.0
+            # data_image1 = imgs[0].cpu()
+            # images_t3 = tf.ToPILImage()(data_image1)
+            # images_t3.show()
             # Forward
 
             bs, c, h, w = imgs.shape
 
             # 20201231 by zlf
             # MNN forward
-            
+
             data = MNNF.const(imgs.flatten().tolist(), [bs, 3, 320, 320], MNNF.data_format.NCHW)
             predict = net.forward(data)
             predict.read()
@@ -94,6 +106,11 @@ def train(hyp,device):
             x = [x1, x2, x3]
 
             loss1, loss_items1 = compute_loss(x, targets.to(device), model)
+            total_loss += loss_items1[3].item()
+            avg_total_loss = total_loss/i
+            # if i == 0:
+            #     print('loss0:',loss1)
+            #     print('iou loss:%.4f,obj loss:%.4f,cls loss:%.4f,total:%.4f'%(loss_items1[0].item(),loss_items1[1].item(),loss_items1[2].item(),loss_items1[3].item()))
             loss1 = np.array(loss1.cpu())
             loss1 = MNNF.const(loss1.flatten().tolist(), [1], MNNF.data_format.NCHW)
 
@@ -101,7 +118,11 @@ def train(hyp,device):
             # Backward
             mnn_opt.step(loss1)
             t2 = time.time()
-            print("[%d|%d|%d]train loss:%.5f,time:%.3f "%(epoch,i,len(dataloader)-1,loss1.read(),(t2-t1)))
+            line = '[%d|%d|%d]iou_loss:%.4f,obj_loss:%.4f,cls_loss:%.4f,total:%.4f,mean_total:%.4f,time:%.3f' % (epoch,i,len(dataloader)-1,
+            loss_items1[0].item(), loss_items1[1].item(), loss_items1[2].item(), loss_items1[3].item(),avg_total_loss,(t2-t1))
+            # print("[%d|%d|%d]train loss:%.5f,time:%.3f "%(epoch,i,len(dataloader)-1,loss1.read(),(t2-t1)))
+            f.write(line+'\n')
+            print(line)
 
         # save model
         file_name = './weights/%d_20201231test.mnn' % epoch
@@ -114,6 +135,7 @@ def train(hyp,device):
 
         # end epoch ----------------------------------------------------------------------------------------------------
     # end training
+    f.close()
 
 
 
