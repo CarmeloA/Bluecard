@@ -80,7 +80,8 @@ def train(hyp,device):
 
             # 20201231 by zlf
             # MNN forward
-            data = MNNF.const(imgs.flatten().tolist(), [128, 3, 320, 320], MNNF.data_format.NCHW)
+            
+            data = MNNF.const(imgs.flatten().tolist(), [bs, 3, 320, 320], MNNF.data_format.NCHW)
             predict = net.forward(data)
             predict.read()
             p1 = MNNF.Var.read(predict)
