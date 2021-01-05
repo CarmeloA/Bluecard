@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/val/new_test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_test1.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/val/new_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_val.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" afterDir="false" />
     </list>
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/val/new_val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
-              <caret line="100" column="62" selection-start-line="98" selection-start-column="12" selection-end-line="100" selection-end-column="62" />
+            <state relative-caret-position="328">
+              <caret line="147" column="68" selection-start-line="147" selection-start-column="68" selection-end-line="147" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -28,8 +26,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/init_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-722">
-              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+            <state relative-caret-position="195">
+              <caret line="109" selection-start-line="109" selection-end-line="109" />
               <folding>
                 <element signature="e#23#33#0" expanded="true" />
                 <element signature="e#1490#3093#0" />
@@ -39,10 +37,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/new_test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="557" column="25" selection-start-line="557" selection-start-column="4" selection-end-line="557" selection-end-column="25" />
+            <state relative-caret-position="366">
+              <caret line="28" selection-start-line="28" selection-end-line="28" />
             </state>
           </provider>
         </entry>
@@ -111,8 +114,8 @@
         <option value="$PROJECT_DIR$/utils/check_single_img.py" />
         <option value="$PROJECT_DIR$/val/result_op.py" />
         <option value="$PROJECT_DIR$/update_gt/update.py" />
-        <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/val/new_test1.py" />
+        <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/val/new_val.py" />
       </list>
     </option>
@@ -136,21 +139,6 @@
             <path>
               <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
               <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
-              <item name="update_gt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
-              <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
-              <item name="val" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
@@ -319,7 +307,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609813826724</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="write result.txt for CloudAI">
+      <created>1609817552388</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1609817552388</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -347,7 +342,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add mnn quan val" />
-    <option name="LAST_COMMIT_MESSAGE" value="add mnn quan val" />
+    <MESSAGE value="write result.txt for CloudAI" />
+    <option name="LAST_COMMIT_MESSAGE" value="write result.txt for CloudAI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -594,10 +590,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/val/init_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-722">
-          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+        <state relative-caret-position="195">
+          <caret line="109" selection-start-line="109" selection-end-line="109" />
           <folding>
             <element signature="e#23#33#0" expanded="true" />
             <element signature="e#1490#3093#0" />
@@ -607,15 +606,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/val/new_test1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="52">
-          <caret line="557" column="25" selection-start-line="557" selection-start-column="4" selection-end-line="557" selection-end-column="25" />
+        <state relative-caret-position="366">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/val/new_val.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="100" column="62" selection-start-line="98" selection-start-column="12" selection-end-line="100" selection-end-column="62" />
+        <state relative-caret-position="328">
+          <caret line="147" column="68" selection-start-line="147" selection-start-column="68" selection-end-line="147" selection-end-column="68" />
         </state>
       </provider>
     </entry>

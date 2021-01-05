@@ -99,7 +99,7 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
             if not os.path.exists(save_path+'only_detect/'):
                 os.mkdir(save_path+'only_detect/')
             cv2.imwrite(save_path+'only_detect/'+ name, img_c)
-            print('[%s|%s]%s is saved'%(ind+1,len(lines1),name))
+            print('[%s|%s]%s is saved(%.3fs)'%(ind+1,len(lines1),name,(t1-t0)))
             continue
         # if flag:
         #     # write label for 'flag = 1'
@@ -141,11 +141,11 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
 
 
 if __name__ == '__main__':
-    path = '/home/data/inference/20210105/mnn_quan/何各庄/'
+    path = '/home/data/inference/20210105/exp25_599_800_quan/何各庄/'
     if not os.path.exists(path):
         os.makedirs(path)
     # model = Model('../count_10w_yolov5_350_quant.mnn')
-    model = Model('/home/data/zlf/Bluecard/yolov5-bluecard/weights/0_20201231test.mnn',mnn_quan=True)
+    model = Model('../weights/exp25_599_800_quan.mnn',mnn_quan=False)
     val(model,
             '/home/data/TestSampleLib/何各庄/',
             issave=True,
