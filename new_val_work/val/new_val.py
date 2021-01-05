@@ -1,7 +1,7 @@
 import sys
 sys.path.append('/home/sysman/zlf/new_val_work')
 from val.new_test1 import build_target,compared,count_target,\
-    draw_bbox,check_compare_res_and_save,check_pred,write_label
+    draw_bbox,check_compare_res_and_save,check_pred,write_res_for_cloudAI
 
 from utils.general import non_max_suppression,scale_coords,non_max_suppression_for_logo,letterbox
 from utils.to_labels import build_target1
@@ -23,6 +23,7 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
     # res_txt = open(result_txt,'a')
     # original_result_txt = result_txt.replace('result','original_result')
     # original_res_txt = open(original_result_txt,'a')
+    cloud_ai_txt = open(result_txt.replace('result', 'cloudai_result'),'w')
     if imgs_path.endswith('.txt'):
         lines = open(imgs_path,'r',encoding='gbk')
         # lines = f.readlines()
@@ -85,18 +86,20 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
             pred_after_check[:, :4] = scale_coords(img.shape[1:], pred_after_check[:, :4], image.shape).round()
             pred[:, :4] = scale_coords(img.shape[1:], pred[:, :4], image.shape).round()
 
+        write_res_for_cloudAI(cloud_ai_txt,pred,name)
+
         image,img_c = draw_bbox(image,pred_after_check,boxes)
         if only_detect:
             # write label for 'only detect' img
-            if not os.path.exists(save_path+'labels/'):
-                os.mkdir(save_path+'labels/')
-            txt_name = name.replace('.jpg','.txt')
-            label_txt = open(save_path+'labels/'+txt_name,'w')
-            write_label(pred_after_check,img_c,label_txt)
+            # if not os.path.exists(save_path+'labels/'):
+            #     os.mkdir(save_path+'labels/')
+            # txt_name = name.replace('.jpg','.txt')
+            # label_txt = open(save_path+'labels/'+txt_name,'w')
+            # write_label(pred_after_check,img_c,label_txt)
             if not os.path.exists(save_path+'only_detect/'):
                 os.mkdir(save_path+'only_detect/')
             cv2.imwrite(save_path+'only_detect/'+ name, img_c)
-            print('%s is saved'%name)
+            print('[%s|%s]%s is saved'%(ind+1,len(lines1),name))
             continue
         # if flag:
         #     # write label for 'flag = 1'
@@ -138,15 +141,15 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
 
 
 if __name__ == '__main__':
-    path = '/home/data/inference/20201222_ADMM/ADMM_quan_mnn_阿里/'
+    path = '/home/data/inference/20210105/mnn_quan/何各庄/'
     if not os.path.exists(path):
         os.makedirs(path)
     # model = Model('../count_10w_yolov5_350_quant.mnn')
-    model = Model('../weights/20201214best_quan_20w_ADMM.mnn',mnn_quan=False)
+    model = Model('/home/data/zlf/Bluecard/yolov5-bluecard/weights/0_20201231test.mnn',mnn_quan=True)
     val(model,
-            '/home/data/TestSampleLib/阿里/',
+            '/home/data/TestSampleLib/何各庄/',
             issave=True,
             save_path=path,
-            result_txt=path+'result.txt',logo=0,only_detect=False,flag=0)
+            result_txt=path+'result.txt',logo=0,only_detect=True,flag=0)
 
 

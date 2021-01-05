@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="" />
+    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val/new_test1.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_test1.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val/new_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_val.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/val/new_val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+            <state relative-caret-position="501">
+              <caret line="100" column="62" selection-start-line="98" selection-start-column="12" selection-end-line="100" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -22,17 +28,21 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/init_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1691">
-              <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
+            <state relative-caret-position="-722">
+              <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+              <folding>
+                <element signature="e#23#33#0" expanded="true" />
+                <element signature="e#1490#3093#0" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/new_test1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="534" column="4" selection-start-line="534" selection-start-column="4" selection-end-line="534" selection-end-column="4" />
+            <state relative-caret-position="52">
+              <caret line="557" column="25" selection-start-line="557" selection-start-column="4" selection-end-line="557" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -52,7 +62,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/result_op.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2165">
+            <state relative-caret-position="4313">
               <caret line="232" column="90" selection-start-line="232" selection-start-column="90" selection-end-line="232" selection-end-column="90" />
             </state>
           </provider>
@@ -61,7 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/update_gt/update.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
+            <state relative-caret-position="1311">
               <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -87,6 +97,9 @@
       <dir>$PROJECT_DIR$</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -95,10 +108,10 @@
         <option value="$PROJECT_DIR$/utils/code01.py" />
         <option value="$PROJECT_DIR$/utils/to_labels.py" />
         <option value="$PROJECT_DIR$/utils/copy_error_img.py" />
-        <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/utils/check_single_img.py" />
         <option value="$PROJECT_DIR$/val/result_op.py" />
         <option value="$PROJECT_DIR$/update_gt/update.py" />
+        <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/val/new_test1.py" />
         <option value="$PROJECT_DIR$/val/new_val.py" />
       </list>
@@ -110,6 +123,7 @@
     <option name="width" value="1353" />
     <option name="height" value="943" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -137,6 +151,11 @@
               <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
               <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
               <item name="val" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="new_val_work" type="b2602c69:ProjectViewProjectNode" />
+              <item name="new_val_work" type="462c0819:PsiDirectoryNode" />
+              <item name="weights" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -293,19 +312,27 @@
       <option name="presentableId" value="Default" />
       <updated>1607419228807</updated>
     </task>
+    <task id="LOCAL-00001" summary="add mnn quan val">
+      <created>1609813826724</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1609813826724</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3295099" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39937434" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -317,6 +344,10 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add mnn quan val" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mnn quan val" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -343,7 +374,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/val/new_val.py</url>
-          <line>74</line>
+          <line>75</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -363,7 +394,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/val/new_val.py</url>
-          <line>48</line>
+          <line>49</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -373,7 +404,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/val/new_val.py</url>
-          <line>42</line>
+          <line>43</line>
           <option name="timeStamp" value="41" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -388,12 +419,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/val/new_val.py</url>
-          <line>29</line>
+          <line>30</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/val/new_val.py</url>
-          <line>65</line>
+          <line>66</line>
           <option name="timeStamp" value="47" />
         </line-breakpoint>
       </breakpoints>
@@ -460,13 +491,7 @@
     <entry file="file://$PROJECT_DIR$/val/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/site-packages/torch/serialization.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="209" selection-start-line="209" selection-end-line="209" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/site-packages/torch/serialization.py" />
     <entry file="file://$PROJECT_DIR$/models/yolov5s.yaml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
@@ -494,13 +519,7 @@
     <entry file="file://$PROJECT_DIR$/val/count_error.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="308" selection-start-line="308" selection-end-line="308" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/codecs.py" />
     <entry file="file://$PROJECT_DIR$/utils/code01.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -547,37 +566,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/val/init_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1691">
-          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/val/result_op.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2165">
-          <caret line="232" column="90" selection-start-line="232" selection-start-column="90" selection-end-line="232" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/update_gt/update.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/site-packages/torch/cuda/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="397" selection-start-line="397" selection-end-line="397" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../pytorch/lib/python3.6/site-packages/torch/cuda/__init__.py" />
     <entry file="file://$PROJECT_DIR$/utils/copy_error_img.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
@@ -588,17 +577,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/val/new_val.py">
+    <entry file="file://$PROJECT_DIR$/val/result_op.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
+        <state relative-caret-position="4313">
+          <caret line="232" column="90" selection-start-line="232" selection-start-column="90" selection-end-line="232" selection-end-column="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/update_gt/update.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1311">
+          <caret line="72" column="26" selection-start-line="72" selection-start-column="26" selection-end-line="72" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/val/init_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-722">
+          <caret line="10" column="12" selection-start-line="10" selection-start-column="12" selection-end-line="10" selection-end-column="12" />
+          <folding>
+            <element signature="e#23#33#0" expanded="true" />
+            <element signature="e#1490#3093#0" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/val/new_test1.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="534" column="4" selection-start-line="534" selection-start-column="4" selection-end-line="534" selection-end-column="4" />
+        <state relative-caret-position="52">
+          <caret line="557" column="25" selection-start-line="557" selection-start-column="4" selection-end-line="557" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/val/new_val.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="100" column="62" selection-start-line="98" selection-start-column="12" selection-end-line="100" selection-end-column="62" />
         </state>
       </provider>
     </entry>

@@ -554,6 +554,29 @@ def write_label(pred,img,label_txt):
         label_txt.close()
         return
 
+# write result for cloudAI
+def write_res_for_cloudAI(f,pred,img_name):
+
+    if pred is None:
+        line =img_name+': '
+        f.write(line+'\n')
+    else:
+        f.write((img_name+': '))
+        for box in pred:
+            x1 = int(box[0].item())
+            y1 = int(box[1].item())
+            x2 = int(box[2].item())
+            y2 = int(box[3].item())
+            conf = round((box[4].item()*100),2)
+            cls = int(box[5].item())
+            line = "[%s,%.2f,%d,%d,%d,%d]" % (
+                names[cls], conf,x1, y1, x2, y2)
+            f.write(line)
+        f.write('\n')
+
+
+
+
 # 判断车头车尾(在检测出车的前提下,利用logo判断)
 def front_or_back(car,logo):
     car_x1 = int(car[0])
