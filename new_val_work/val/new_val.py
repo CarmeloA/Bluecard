@@ -142,7 +142,7 @@ if __name__ == '__main__':
     if not os.path.exists(path):
         os.makedirs(path)
     # model = Model('../count_10w_yolov5_350_quant.mnn')
-    model = Model('../weights/20201214best_quan_20w_ADMM.mnn')
+    model = Model('../weights/20201214best_quan_20w_ADMM.mnn',mnn_quan=False)
     val(model,
             '/home/data/TestSampleLib/阿里/',
             issave=True,

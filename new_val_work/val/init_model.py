@@ -8,6 +8,7 @@ import torch.nn as nn
 import numpy as np
 import os
 import logging
+F = MNN.expr
 
 logger = logging.getLogger(__name__)
 
@@ -27,8 +28,9 @@ class Ensemble(nn.ModuleList):
         return y, None  # inference, train output
 
 class Model():
-    def __init__(self,model):
+    def __init__(self,model,mnn_quan=False):
         self.model = model
+        self.mnn_quan = mnn_quan
         self.d_model = self.init_model()
 
     def init_model(self):
@@ -39,8 +41,11 @@ class Model():
         return model
 
     def mnn_init(self):
-        interpreter = MNN.Interpreter(self.model)
-        return interpreter
+        if self.mnn_quan:
+            model = MNN.nn.load_module_from_file(self.model, for_training=True)
+        else:
+            model = MNN.Interpreter(self.model)
+        return model
 
     def yolov5_init(self):
         device = self.select_device('1')
@@ -50,10 +55,14 @@ class Model():
 
     def detect(self,image):
         if self.model.endswith('.mnn'):
-            pred = self.mnn_detect(image)
+            if self.mnn_quan:
+                pred = self.mnn_quan_detect(image)
+            else:
+                pred = self.mnn_detect(image)
         elif self.model.endswith('.pt'):
             pred = self.yolov5_detect(image)
         return pred
+
     # MNN
     def mnn_detect(self,image):
         image = image.astype(np.float32)
@@ -86,6 +95,23 @@ class Model():
              torch.tensor(tmp_output1.getData()),
              torch.tensor(tmp_output2.getData())]
 
+        pred = self.mnn_inference(x)
+        return pred
+
+    def mnn_quan_detect(self, image):
+        c, h, w = image.shape
+        data = F.const(image.flatten().tolist(), [1, c, h, w], F.data_format.NCHW)
+        MNN.nn.compress.train_quant(self.d_model, quant_bits=8)
+        self.d_model.train(False)
+        predict1 = self.d_model(data)
+        predict1.read()
+        p1 = F.Var.read(predict1)
+        p1 = torch.tensor(p1)
+        x1, x2, x3 = torch.split(p1, [2880, 720, 180], 1)
+        x1 = x1.view(-1, 327, 24, 40)
+        x2 = x2.view(-1, 327, 12, 20)
+        x3 = x3.view(-1, 327, 6, 10)
+        x = [x1, x2, x3]
         pred = self.mnn_inference(x)
         return pred
 
