@@ -141,13 +141,13 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
 
 
 if __name__ == '__main__':
-    path = '/home/data/inference/20210105/exp25_599_800_quan/何各庄/'
+    path = '/home/data/inference/20210105/exp25_599_800_quan/大车图片/'
     if not os.path.exists(path):
         os.makedirs(path)
     # model = Model('../count_10w_yolov5_350_quant.mnn')
     model = Model('../weights/exp25_599_800_quan.mnn',mnn_quan=False)
     val(model,
-            '/home/data/TestSampleLib/何各庄/',
+            '/home/data/TestSampleLib/大车图片/',
             issave=True,
             save_path=path,
             result_txt=path+'result.txt',logo=0,only_detect=True,flag=0)
