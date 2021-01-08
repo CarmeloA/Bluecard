@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="">
+    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="add .gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/check_single_img.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/check_single_img.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/val/new_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_val.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +23,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+            <state relative-caret-position="266">
+              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4693">
+              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
             </state>
           </provider>
         </entry>
@@ -121,6 +130,7 @@
         <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/val/new_val.py" />
         <option value="$PROJECT_DIR$/utils/check_single_img.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -330,18 +340,26 @@
       <option name="project" value="LOCAL" />
       <updated>1609822938309</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add .gitignore">
+      <created>1610073291604</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1610073291604</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -599,9 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/val/init_model.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1021">
@@ -629,8 +644,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+        <state relative-caret-position="266">
+          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4693">
+          <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
         </state>
       </provider>
     </entry>

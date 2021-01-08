@@ -1,7 +1,7 @@
 import cv2
 
-f=open('/home/sysman/gate_Sample/VOCdevkit/VOC2017/labels/602600.txt','r')
-img = cv2.imread('/home/sysman/gate_Sample/VOCdevkit/VOC2017/JPEGImages/602600.jpg')
+f=open('/home/sysman/gate_Sample/VOCdevkit/VOC2017/labels/000614.txt','r')
+img = cv2.imread('/home/sysman/gate_Sample/VOCdevkit/VOC2017/JPEGImages/000614.jpg')
 height = img.shape[0]
 width = img.shape[1]
 
