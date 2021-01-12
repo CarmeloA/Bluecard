@@ -1,9 +1,10 @@
 import cv2
 
-f=open('/home/sysman/gate_Sample/VOCdevkit/VOC2017/labels/000614.txt','r')
-img = cv2.imread('/home/sysman/gate_Sample/VOCdevkit/VOC2017/JPEGImages/000614.jpg')
+f=open('/home/sysman/gate_Sample/VOCdevkit/VOC2017/labels/602638.txt','r')
+img = cv2.imread('/home/sysman/gate_Sample/VOCdevkit/VOC2017/JPEGImages/602638.jpg')
 height = img.shape[0]
 width = img.shape[1]
+print(width,height)
 
 lines = f.readlines()
 for line in lines:
@@ -20,6 +21,6 @@ for line in lines:
     y2 = int((y+h/2)*height)
 
     cv2.rectangle(img,(x1,y1),(x2,y2),(255,0,0),2)
-img = cv2.resize(img,(width//2,height//2))
+img = cv2.resize(img,(1200,900))
 cv2.imshow('win',img)
 cv2.waitKey(0)

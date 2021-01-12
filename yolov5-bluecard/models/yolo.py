@@ -86,8 +86,13 @@ class Detect(nn.Module):
         #     self.training = False
         # add by zlf at 20201019
 
+
         for i in range(self.nl):
             x[i] = self.m[i](x[i])  # conv
+            # add by zlf 20210112
+            bs, _, ny, nx = x[i].shape
+            z.append(x[i].view(bs,ny*nx*3,109))
+            # 20210112
 
             # by zlf 20201016 for onnx; onnx needs (bs,327,6,10)
             # bs, _, ny, nx = x[i].shape  # x(bs,255,20,20) to x(bs,3,20,20,85)
@@ -104,7 +109,8 @@ class Detect(nn.Module):
                 y[..., 2:4] = (y[..., 2:4] * 2) ** 2 * self.anchor_grid[i]  # wh
                 z.append(y.view(bs, -1, self.no))
 
-        return x if self.training else (torch.cat(z, 1), x)
+        # return x if self.training else (torch.cat(z, 1), x)
+        return torch.cat(z, 1)
 
     @staticmethod
     def _make_grid(nx=20, ny=20):

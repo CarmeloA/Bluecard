@@ -98,7 +98,7 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
             # write_label(pred_after_check,img_c,label_txt)
             if not os.path.exists(save_path+'only_detect/'):
                 os.mkdir(save_path+'only_detect/')
-            cv2.imwrite(save_path+'only_detect/'+ name, img_c)
+            # cv2.imwrite(save_path+'only_detect/'+ name, img_c)
             print('[%s|%s]%s is saved(%.3fs)'%(ind+1,len(lines1),name,(t1-t0)))
             continue
         # if flag:
@@ -141,13 +141,13 @@ def val(model,imgs_path,issave=True,save_path='',result_txt='',logo=None,only_de
 
 
 if __name__ == '__main__':
-    path = '/home/data/inference/20210105/exp25_599_800_quan/大车图片/'
+    path = '/home/data/inference/20210112/exp27_599_800_quan/新能源车牌/'
     if not os.path.exists(path):
         os.makedirs(path)
     # model = Model('../count_10w_yolov5_350_quant.mnn')
-    model = Model('../weights/exp25_599_800_quan.mnn',mnn_quan=False)
+    model = Model('../weights/exp27_ckpt_model_599_800_0.0787_quan.mnn',mnn_quan=False)
     val(model,
-            '/home/data/TestSampleLib/大车图片/',
+            '/home/data/TestSampleLib/新能源车牌/',
             issave=True,
             save_path=path,
             result_txt=path+'result.txt',logo=0,only_detect=True,flag=0)

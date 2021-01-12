@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="add .gitignore">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="dafe5ea2-e9c6-4044-be21-b59a94b8c865" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/utils/check_single_img.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/check_single_img.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val/init_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/init_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/val/new_val.py" beforeDir="false" afterPath="$PROJECT_DIR$/val/new_val.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../yolov5-bluecard/20210104_quan_train.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../yolov5-bluecard/models/yolo.py" beforeDir="false" afterPath="$PROJECT_DIR$/../yolov5-bluecard/models/yolo.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,26 +19,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/new_val.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="75" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="-1515">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
+        <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4693">
-              <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+            <state relative-caret-position="247">
+              <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -44,11 +37,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/val/init_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1021">
-              <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
+            <state relative-caret-position="955">
+              <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
               <folding>
                 <element signature="e#23#33#0" expanded="true" />
-                <element signature="e#1490#3093#0" />
               </folding>
             </state>
           </provider>
@@ -58,7 +50,7 @@
         <entry file="file://$PROJECT_DIR$/val/new_test1.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="623">
-              <caret line="574" column="21" lean-forward="true" selection-start-line="557" selection-end-line="574" selection-end-column="21" />
+              <caret line="574" column="21" selection-start-line="557" selection-end-line="574" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -127,18 +119,18 @@
         <option value="$PROJECT_DIR$/val/result_op.py" />
         <option value="$PROJECT_DIR$/update_gt/update.py" />
         <option value="$PROJECT_DIR$/val/new_test1.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/val/init_model.py" />
         <option value="$PROJECT_DIR$/val/new_val.py" />
         <option value="$PROJECT_DIR$/utils/check_single_img.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="172" />
-    <option name="y" value="-4" />
+    <option name="y" value="34" />
     <option name="width" value="1353" />
-    <option name="height" value="943" />
+    <option name="height" value="887" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -171,7 +163,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$USER_HOME$/zlf/Samples_database" />
+    <property name="last_opened_file_path" value="$USER_HOME$/kw/libtorch_yolov3_tiny" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
@@ -347,19 +339,26 @@
       <option name="project" value="LOCAL" />
       <updated>1610073291604</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add .gitignore">
+      <created>1610082780472</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1610082780472</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1855" height="1084" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.10644105" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3291536" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3291536" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39916405" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -439,7 +438,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/utils/check_single_img.py</url>
-          <line>9</line>
+          <line>10</line>
           <option name="timeStamp" value="42" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -617,35 +616,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/val/init_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1021">
-          <caret line="108" column="29" selection-start-line="108" selection-start-column="29" selection-end-line="108" selection-end-column="29" />
-          <folding>
-            <element signature="e#23#33#0" expanded="true" />
-            <element signature="e#1490#3093#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/val/new_test1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="623">
-          <caret line="574" column="21" lean-forward="true" selection-start-line="557" selection-end-line="574" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/val/new_val.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="25" column="75" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="22" lean-forward="true" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <caret line="574" column="21" selection-start-line="557" selection-end-line="574" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -653,6 +627,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4693">
           <caret line="247" lean-forward="true" selection-start-line="247" selection-end-line="247" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/val/init_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="955">
+          <caret line="80" column="67" selection-start-line="80" selection-start-column="67" selection-end-line="80" selection-end-column="67" />
+          <folding>
+            <element signature="e#23#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/val/new_val.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1515">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utils/check_single_img.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="22" lean-forward="true" selection-start-line="13" selection-start-column="22" selection-end-line="13" selection-end-column="22" />
         </state>
       </provider>
     </entry>

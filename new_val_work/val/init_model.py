@@ -77,8 +77,8 @@ class Model():
         interpreter.runSession(session)
 
         output_tensor0 = interpreter.getSessionOutput(session, 'output')
-        output_tensor1 = interpreter.getSessionOutput(session, '743')
-        output_tensor2 = interpreter.getSessionOutput(session, '744')
+        output_tensor1 = interpreter.getSessionOutput(session, '775')
+        output_tensor2 = interpreter.getSessionOutput(session, '776')
 
         tmp_output0 = MNN.Tensor((1, 327, 24, 40), MNN.Halide_Type_Float, np.ones([1, 327, 24, 40]).astype(np.float32),
                                  MNN.Tensor_DimensionType_Caffe)
